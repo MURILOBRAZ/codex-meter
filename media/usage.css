@@ -1,0 +1,203 @@
+:root {
+  --gap: 14px;
+  --bar-bg: var(--vscode-input-background, rgba(128, 128, 128, 0.2));
+  --bar-ok: var(--vscode-progressBar-background, #0e70c0);
+  --bar-warn: var(--vscode-editorWarning-foreground, #cca700);
+  --bar-crit: var(--vscode-editorError-foreground, #f14c4c);
+  --muted: var(--vscode-descriptionForeground);
+}
+
+body {
+  padding: 4px 14px 14px;
+  color: var(--vscode-foreground);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+  background: transparent;
+}
+
+.section {
+  padding: var(--gap) 0;
+  border-bottom: 1px solid var(--vscode-sideBarSectionHeader-border, rgba(128, 128, 128, 0.2));
+}
+
+.section-title {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 11px;
+}
+
+.account-primary {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quota-group + .quota-group {
+  margin-top: var(--gap);
+}
+
+.group-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.meter + .meter {
+  margin-top: 12px;
+}
+
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.meter-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bar-bg);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--bar-ok);
+  transition: width 0.4s ease;
+}
+
+.level-warn .bar-fill { background: var(--bar-warn); }
+.level-crit .bar-fill { background: var(--bar-crit); }
+.level-crit .meter-value { color: var(--bar-crit); }
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 4px;
+  column-gap: 12px;
+  margin: 0;
+}
+
+.stats dt {
+  color: var(--muted);
+}
+
+.stats dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-caption {
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 44px;
+}
+
+.chart-col {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--bar-bg);
+}
+
+.chart-bar {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  background: var(--bar-ok);
+  opacity: 0.55;
+}
+
+.chart-col.today .chart-bar,
+.chart-col:hover .chart-bar {
+  opacity: 1;
+}
+
+.note {
+  margin: 10px 0 0;
+}
+
+.errors {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--vscode-inputValidation-errorBorder, var(--bar-crit));
+  background: var(--vscode-inputValidation-errorBackground, transparent);
+  word-break: break-word;
+}
+
+.errors > div + div {
+  margin-top: 4px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+a {
+  color: var(--vscode-textLink-foreground);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: var(--gap);
+}
+
+.refresh {
+  border: none;
+  padding: 3px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  color: var(--vscode-button-secondaryForeground);
+  background: var(--vscode-button-secondaryBackground);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.refresh:hover:not(:disabled) {
+  background: var(--vscode-button-secondaryHoverBackground);
+}
+
+.refresh:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.refresh:focus-visible {
+  outline: 1px solid var(--vscode-focusBorder);
+  outline-offset: 1px;
+}
+
+.loading {
+  padding-top: var(--gap);
+}

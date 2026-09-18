@@ -1,0 +1,153 @@
+{
+  "name": "codex-meter",
+  "displayName": "Codex Meter",
+  "description": "Unofficial. See your Codex account, 5h/weekly quota and token usage in the Activity Bar, via the Codex App Server.",
+  "version": "0.1.0",
+  "publisher": "murilobraz",
+  "author": {
+    "name": "Murilo Braz"
+  },
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#111827",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MURILOBRAZ/codex-meter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MURILOBRAZ/codex-meter/issues"
+  },
+  "homepage": "https://github.com/MURILOBRAZ/codex-meter#readme",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "codex",
+    "openai",
+    "usage",
+    "quota",
+    "rate limit",
+    "tokens"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codexMeter",
+          "title": "Codex Meter",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codexMeter": [
+        {
+          "type": "webview",
+          "id": "codexMeter.view",
+          "name": "Account & Usage"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codexMeter.refresh",
+        "title": "Refresh",
+        "category": "Codex Meter",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "codexMeter.restartServer",
+        "title": "Restart Codex App Server",
+        "category": "Codex Meter"
+      },
+      {
+        "command": "codexMeter.showLog",
+        "title": "Show Log",
+        "category": "Codex Meter"
+      },
+      {
+        "command": "codexMeter.openSettings",
+        "title": "Open Settings",
+        "category": "Codex Meter",
+        "icon": "$(gear)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "codexMeter.refresh",
+          "when": "view == codexMeter.view",
+          "group": "navigation@1"
+        },
+        {
+          "command": "codexMeter.openSettings",
+          "when": "view == codexMeter.view",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Codex Meter",
+      "properties": {
+        "codexMeter.codexPath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Path to the `codex` executable. When empty, the binary bundled with the official OpenAI Codex extension is used if installed, otherwise `codex` from your `PATH`."
+        },
+        "codexMeter.refreshIntervalSeconds": {
+          "type": "number",
+          "default": 120,
+          "minimum": 30,
+          "description": "How often to poll the Codex App Server for account and usage data."
+        },
+        "codexMeter.display": {
+          "type": "string",
+          "enum": [
+            "used",
+            "remaining"
+          ],
+          "enumDescriptions": [
+            "Show the percentage of each quota window already used.",
+            "Show the percentage of each quota window still available."
+          ],
+          "default": "used",
+          "description": "Whether quota bars show used or remaining percentage."
+        },
+        "codexMeter.statusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show quota usage in the status bar."
+        },
+        "codexMeter.localTokenFallback": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "When the installed Codex does not support `account/usage/read`, estimate token usage from local session logs in `$CODEX_HOME/sessions` (this machine only)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && node --test out/test/*.test.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.0",
+    "typescript": "^5.5.0"
+  }
+}
