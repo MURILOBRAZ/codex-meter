@@ -2,7 +2,7 @@
   "name": "codex-meter",
   "displayName": "Codex Meter",
   "description": "Unofficial. See your Codex account, 5h/weekly quota and token usage in the Activity Bar, via the Codex App Server.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "murilobraz",
   "author": {
     "name": "Murilo Braz"

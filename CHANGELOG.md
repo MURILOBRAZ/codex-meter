@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- New extension icon.
+- Portuguese README (`README.pt-BR.md`), linked from the English one.
+
 ## 0.1.0
 
 First release.
