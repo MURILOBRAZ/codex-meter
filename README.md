@@ -1,5 +1,7 @@
 # Codex Meter
 
+**English** · [Português](README.pt-BR.md)
+
 See your Codex account, quota and token usage in the VS Code Activity Bar.
 
 > **Unofficial.** Codex Meter is a community extension. It is not made, endorsed or supported by OpenAI. "Codex" and "ChatGPT" are trademarks of OpenAI. You need the Codex CLI or the official OpenAI Codex extension installed and signed in.
