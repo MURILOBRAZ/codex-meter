@@ -6,32 +6,7 @@ See your Codex account, quota and token usage in the VS Code Activity Bar.
 
 > **Unofficial.** Codex Meter is a community extension. It is not made, endorsed or supported by OpenAI. "Codex" and "ChatGPT" are trademarks of OpenAI. You need the Codex CLI or the official OpenAI Codex extension installed and signed in.
 
-```
-▼ CODEX METER: ACCOUNT & USAGE
-
-  ACCOUNT
-  you@example.com
-  ChatGPT Plus
-
-  USAGE
-  Session (5h)                  7%
-  ██░░░░░░░░░░░░░░░░░░
-  Resets in 4h 36m
-
-  Weekly (7d)                  60%
-  ████████████░░░░░░░░
-  Resets Sep 20, 18:04
-
-  TOKENS
-  Today                 22,534,095
-  Last 7 days          111,060,238
-  Lifetime           2,960,568,309
-  Peak day             180,528,767
-  Streak                10d (best 12d)
-  ▁▂▁▅▃▇▂▁▃▄▆▂▅█  (last 14 days)
-
-  Last updated: 16:27     ↻ Refresh
-```
+<img src="docs/screenshot.png" width="320" alt="Codex Meter panel in the VS Code sidebar">
 
 The data comes from the official **Codex App Server**, the JSON-RPC interface the Codex IDE extension also uses. The extension never reads `~/.codex/auth.json` and never calls private ChatGPT endpoints.
 
